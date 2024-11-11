@@ -1,11 +1,11 @@
 import {useContext} from "react";
 import {TwitterContext} from "../utils/context.js";
 
-const Avatar = ({size}) => {
+const Avatar = ({size, handleChangeAvatar}) => {
 
     const {user} = useContext(TwitterContext);
     return (
-        <img className={`user-avatar ${size ?? ''}`} src={user.avatar} alt={user.name}/>
+        <img onClick={handleChangeAvatar} className={`user-avatar ${size ?? ''}`} src={user.avatar} alt={user.name}/>
     );
 };
 

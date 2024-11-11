@@ -9,6 +9,12 @@ function App() {
         name: 'Robot',
         avatar: 'https://gravatar.com/avatar/000?d=robohash'
     });
+    const handleChangeAvatar = () => {
+        const newAvatarUrl = prompt("Enter new Avatar link:");
+        if (newAvatarUrl) {
+            setUser(prevUser => ({...prevUser, avatar: newAvatarUrl}));
+        }
+    }
 
     const [stats, setStats] = useState({
         followers: 10,
@@ -17,7 +23,7 @@ function App() {
     return (
         <div className={'app'}>
             <TwitterContext.Provider value={{
-                user, stats,
+                user, stats, handleChangeAvatar
             }}>
                 <Navigation/>
                 <Body/>

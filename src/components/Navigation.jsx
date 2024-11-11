@@ -1,9 +1,12 @@
 import Avatar from "./Avatar.jsx";
+import {useContext} from "react";
+import {TwitterContext} from "../utils/context.js";
 
 const Navigation = () => {
+    const {handleChangeAvatar} = useContext(TwitterContext)
     return (
         <div className={'nav'}>
-            <Avatar size={'small'}/>
+            <Avatar handleChangeAvatar={handleChangeAvatar} size={'small'}/>
         </div>
     );
 };
